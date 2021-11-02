@@ -2,13 +2,19 @@ spring:
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
+    properties:
+      org.hibernate.envers:
+        audit_table_suffix: _history
+        store_data_at_delete: true
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/example?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
     password: 1234
+
 
 
 
